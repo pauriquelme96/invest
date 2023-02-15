@@ -1,0 +1,18 @@
+
+
+.main-layout {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    height: 100%;
+}
+
+.content {
+    overflow: auto;
+}
+
+.year {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 20px;
+}

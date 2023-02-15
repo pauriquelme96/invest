@@ -1,0 +1,74 @@
+@import '../../../variables.scss';
+
+.main-layout {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    height: 100%;
+}
+
+.app-icon {
+    height: 70px;
+    border-radius: 10px;
+    padding: 5px 12px;
+}
+
+.browser-icon {
+    height: 70px;
+    width: 70px;
+    background-color: rgb(235, 235, 235);
+    border-radius: 10px;
+    padding: 4px;
+}
+
+.icons-layout {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-top: 40px;
+    margin-bottom: 60px;
+}
+
+
+.install-layout {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 50px;
+}
+
+.other {
+    margin: 20px;
+    color: $bgLevel3;
+}
+
+.guide {
+    padding: 35px;
+    padding-right: 25px;
+}
+
+.install-square {
+    display: grid;
+    grid-auto-flow: rows;
+    justify-items: center;
+    align-items: center;
+    height: 70px;
+    width: 70px;
+    background-color: rgb(216, 216, 216);
+    border-radius: 10px;
+}
+
+.app-icon-guide {
+    height: 70px;
+    border-radius: 10px;
+    padding: 5px 11px;
+}
+
+.step-layout {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 10px;
+}

@@ -1,0 +1,50 @@
+<app-overlay [visible]="true">
+  <div
+    class="menu p-2 bg-level-1 no-select"
+    [ngStyle]="{ left: open ? '0%' : '80%' }"
+  >
+    <div class="user">
+      <div class="avatar bg-level-2">
+        <i class="c-secondary fi fi-rr-user"></i>
+      </div>
+      <div class="data">
+        <p class="txt-m c-primary">Pau Riquelme</p>
+        <p class="txt-xs c-secondary">pau@aircode.es</p>
+      </div>
+      <div>
+        <i
+          (click)="closeMenu()"
+          class="c-primary txt-xs p-2 clickable fi fi-rr-angle-right"
+        ></i>
+      </div>
+    </div>
+    <div class="sections">
+      <ng-container *ngFor="let section of sections">
+        <p
+          (click)="navigateTo(section.path)"
+          *ngIf="section.path !== 'exit'"
+          class="txt-m c-primary p-1 clickable"
+        >
+          <i
+            [ngClass]="'fi fi-rr-' + section.iconName"
+            class="c-primary txt-s"
+            style="position: relative; top: 1px"
+          ></i>
+          <span class="ml-3">{{ section.name }}</span>
+        </p>
+        <p
+          (click)="navigateTo(section.path)"
+          *ngIf="section.path === 'exit'"
+          class="c-error p-1 clickable"
+        >
+          <i
+            [ngClass]="'fi fi-rr-' + section.iconName"
+            class="txt-s"
+            style="position: relative; top: 1px"
+          ></i>
+          <span class="ml-3">{{ section.name }}</span>
+        </p>
+      </ng-container>
+    </div>
+  </div>
+</app-overlay>

@@ -1,0 +1,47 @@
+
+.menu {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    width: 80%;
+    height: 100%;
+    float: right;
+    position: relative;
+    left: 80%;
+    max-width: 400px;
+    justify-self: end;
+    gap: 20px;
+    transition: 0.7s ease;
+}
+
+.sections {
+    margin-left: 7px;
+    display: grid;
+    grid-auto-flow: row;
+    align-content: baseline;
+}
+
+
+.user {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 15px;
+}
+
+.avatar {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    top: 2px;
+}
+
+.avatar > i {
+    font-size: 1.7em;
+    position: relative;
+    top: 4px;
+}

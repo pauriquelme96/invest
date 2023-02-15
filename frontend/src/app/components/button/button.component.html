@@ -1,0 +1,22 @@
+<button
+  *ngIf="getIcon()"
+  pButton
+  [ngClass]="getClass()"
+  [icon]="getIcon()"
+  [disabled]="ctrl.disabled || ctrl.fetching"
+  [label]="ctrl.label"
+  (click)="ctrl.click.next('')"
+  [pTooltip]="ctrl.tooltip"
+  tooltipPosition="top"
+></button>
+
+<button
+  *ngIf="!getIcon()"
+  pButton
+  [ngClass]="getClass()"
+  [disabled]="ctrl.disabled || ctrl.fetching"
+  [label]="ctrl.label"
+  (click)="ctrl.click.next('')"
+  [pTooltip]="ctrl.tooltip"
+  tooltipPosition="top"
+></button>

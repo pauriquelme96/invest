@@ -1,0 +1,14 @@
+<div [ngClass]="{ 'raise-m': raise }" class="m-2 header bg-level-2 no-select">
+  <i
+    (click)="navigate()"
+    class="p-1 clickable fit-down-s txt-s c-primary fi fi-sr-angle-left"
+  ></i>
+  <p class="txt-m txt-cntr c-primary ellipsis">{{ title }}</p>
+  <ng-container *ngIf="iconRight">
+    <i
+      (click)="openMenu()"
+      [ngClass]="iconRight"
+      class="p-1 clickable fit-down-s txt-s c-primary"
+    ></i>
+  </ng-container>
+</div>

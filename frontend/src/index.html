@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Invest</title>
+    <base href="/" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <!-- WEB MANIFEST -->
+    <link rel="manifest" id="webmanifest" href="manifest.webmanifest" />
+
+    <!-- IPHONE TOP BAR ADJUSTMENT -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+
+    <!-- TOP BAR ADJUSTMENT -->
+    <meta name="msapplication-TileColor" content="#1f2021" />
+    <meta name="theme-color" content="#1f2021" />
+
+    <!-- ICONS -->
+    <link
+      rel="apple-touch-icon"
+      sizes="192x192"
+      href="assets/icons/icon-192x192.png"
+    />
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- RESOURCES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,700;1,400&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #1f2021;
+      }
+
+      .splash {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 200;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        background-color: #1f2021;
+        height: 100%;
+      }
+
+      .splash-container {
+        animation-duration: 0.5s;
+        animation-name: fadeIn;
+        animation-iteration-count: 1;
+        animation-timing-function: ease-in;
+        animation-play-state: running;
+        animation-fill-mode: forwards;
+      }
+
+      .splash-logo {
+        height: 130px;
+        /*width: 130px;*/
+        position: relative;
+        top: -50px;
+      }
+
+      .splash-loader {
+        height: 4px;
+        border-radius: 20px;
+        overflow: hidden;
+        margin-left: 25px;
+        margin-right: 17px;
+        background-color: gray;
+        position: relative;
+        top: -30px;
+        opacity: 0;
+        animation-name: fadeIn;
+        animation-duration: 0.5s;
+        animation-delay: 3s;
+        animation-timing-function: ease-in;
+        animation-fill-mode: forwards;
+        animation-iteration-count: 1;
+      }
+
+      .progress {
+        transition: 1.5s ease;
+        height: 4px;
+        border-radius: 20px;
+        width: 0%;
+        background-color: white;
+        animation-duration: 17s;
+        animation-delay: 3s;
+        animation-name: loading;
+        animation-iteration-count: 1;
+        animation-timing-function: linear;
+        animation-play-state: running;
+        animation-fill-mode: forwards;
+      }
+
+      .progress-2 {
+        transition: 1.5s;
+        height: 4px;
+        border-radius: 20px;
+        width: 0%;
+        background-color: white;
+        position: relative;
+        top: -4px;
+      }
+
+      .hide {
+        animation-duration: 0.5s;
+        animation-name: fadeOut;
+        animation-iteration-count: 1;
+        animation-timing-function: ease-out;
+        animation-play-state: running;
+        animation-fill-mode: forwards;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadeOut {
+        from {
+          opacity: 1;
+        }
+        to {
+          opacity: 0;
+        }
+      }
+
+      @keyframes loading {
+        from {
+          width: 0%;
+        }
+
+        to {
+          width: 80%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="splash" id="splash">
+      <div class="splash-container">
+        <img class="splash-logo" src="./assets/logo-empty.png" alt="" />
+        <div class="splash-loader">
+          <div class="progress"></div>
+          <div id="progress-bar" class="progress-2"></div>
+        </div>
+      </div>
+    </div>
+    <app-root></app-root>
+    <noscript
+      >Please enable JavaScript to continue using this application.</noscript
+    >
+  </body>
+</html>

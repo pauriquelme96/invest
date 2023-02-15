@@ -1,0 +1,33 @@
+@import '../../../variables.scss';
+
+.main-layout {
+    padding: 20px;
+    padding-top: 100px;
+    display: grid;
+    max-width: 400px;
+    margin: 0 auto;
+    height: 100%;
+    grid-template-rows: auto auto 1fr;
+    gap: 35px;
+}
+
+.logo {
+    height: 120px;
+    background-image: url(../../../assets/logo.png);
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.form-layout {
+    padding-bottom: 20px;
+    display: grid;
+    gap: 10px;
+}
+
+.forgot-password {
+    text-align: right;
+    color: $fontColorSecondary;
+    font-size: 0.75em;
+    cursor: pointer;
+}

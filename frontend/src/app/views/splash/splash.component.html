@@ -1,0 +1,80 @@
+<div *ngIf="stage === 'redirect'" class="main-layout no-select">
+  <div>
+    <p class="c-primary txt-xxl txt-cntr p-2">Invest Capital</p>
+    <div class="icons-layout">
+      <img
+        class="app-icon bg-level-2 raise-m"
+        src="../../../assets/logo-empty.png"
+        alt=""
+      />
+      <p class="c-primary txt-xxl">+</p>
+      <img
+        *ngIf="browser === 'chrome'"
+        class="browser-icon raise-m"
+        src="../../../assets/chrome-logo.png"
+        alt=""
+      />
+      <img
+        *ngIf="browser === 'safari'"
+        class="browser-icon raise-m"
+        src="../../../assets/safari-logo.png"
+        alt=""
+      />
+    </div>
+    <p class="c-primary txt-l txt-lght txt-cntr p-1">
+      Para <span class="txt-bld">instalar</span> la App
+    </p>
+    <p class="c-primary txt-l txt-lght txt-cntr">Abre ésta página en</p>
+    <p class="c-primary txt-bld txt-cntr txt-xxl cptlz p-1">{{ browser }}</p>
+  </div>
+  <div>
+    <p class="c-secondary txt-s txt-cntr other clickable no-select">
+      otras opciones
+    </p>
+  </div>
+</div>
+
+<div *ngIf="stage === 'install'" class="main-layout no-select">
+  <div>
+    <p class="c-primary txt-xxl txt-cntr p-2">Invest Capital</p>
+    <div class="install-layout">
+      <img
+        class="app-icon-guide bg-level-2 raise-m"
+        src="../../../assets/logo-empty.png"
+        alt=""
+      />
+      <i class="c-primary txt-xxl fi fi-rr-arrow-small-right fit-down"></i>
+      <div class="install-square raise-m">
+        <p
+          style="color: rgb(45, 45, 45); margin-bottom: -8px"
+          class="txt-s uppr txt-cntr"
+        >
+          APPS
+        </p>
+        <i style="color: rgb(45, 45, 45)" class="txt-xl fi fi-sr-add"></i>
+      </div>
+    </div>
+
+    <p class="c-primary txt-l txt-lght txt-cntr">
+      Pasos para <span class="txt-bld">Instalar</span> la App
+    </p>
+
+    <div class="guide">
+      <ng-container *ngFor="let step of guides[browser]">
+        <div class="step-layout">
+          <p class="c-primary txt-lght txt-m">{{ step.number }}</p>
+          <p class="c-primary txt-lght txt-m" [innerHTML]="step.content"></p>
+        </div>
+        <img class="p-2 mb-3 mt-2" [src]="step.image" alt="" />
+      </ng-container>
+    </div>
+  </div>
+  <div>
+    <p class="p-2 txt-xs txt-cntr other clickable">otras opciones</p>
+  </div>
+</div>
+
+<div *ngIf="stage === 'reinstall'">
+  <h1 class="c-primary">Ya te has instalado la app!</h1>
+  <p class="c-secondary">Búscala en la pantalla de inicio</p>
+</div>

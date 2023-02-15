@@ -1,0 +1,109 @@
+<ng-container *ngIf="!fetching">
+  <div class="p-1 layout no-select">
+    <div *ngIf="!notification?.read" class="status bg-info-light"></div>
+    <ng-container *ngIf="notification?.read" class="status bg-info-light">
+      <ng-container [ngSwitch]="notification?.type">
+        <i
+          *ngSwitchCase="'receipt'"
+          class="icon c-secondary fi fi-rr-receipt"
+        ></i>
+        <i
+          *ngSwitchCase="'deposit-realized'"
+          class="icon c-secondary fi fi-rr-clock"
+        ></i>
+        <i
+          *ngSwitchCase="'deposit-verified'"
+          class="icon c-secondary fi fi-rr-download"
+        ></i>
+        <i
+          *ngSwitchCase="'account-realized'"
+          class="icon c-secondary fi fi-rr-mode-portrait"
+        ></i>
+        <i
+          *ngSwitchCase="'account-verified'"
+          class="icon c-secondary fi fi-rr-check"
+        ></i>
+        <i
+          *ngSwitchCase="'retire'"
+          class="icon c-secondary fi fi-rr-upload"
+        ></i>
+      </ng-container>
+    </ng-container>
+    <p class="c-primary txt-xs">
+      <ng-container [ngSwitch]="notification?.type">
+        <ng-container *ngSwitchCase="'receipt'">
+          Recibo de {{ notification?.month }} listo para firmar y descargar
+        </ng-container>
+        <ng-container *ngSwitchCase="'retire'">
+          Se han retirado
+          <app-currency
+            [number]="notification?.amount * -1"
+            currency="EUR"
+          ></app-currency>
+          de tu capital dispoible
+        </ng-container>
+        <ng-container *ngSwitchCase="'deposit-realized'">
+          El ingreso de
+          <app-currency
+            [number]="notification?.amount"
+            currency="EUR"
+          ></app-currency>
+          a tu capital dispoible está en curso
+        </ng-container>
+        <ng-container *ngSwitchCase="'deposit-verified'">
+          Se han ingresado
+          <app-currency
+            [number]="notification?.amount"
+            currency="EUR"
+          ></app-currency>
+          a tu capital dispoible
+        </ng-container>
+        <ng-container *ngSwitchCase="'account-realized'">
+          Tu cuenta se está verificando, este proceso puede durar de 2 a 3 días
+          hábiles
+        </ng-container>
+        <ng-container *ngSwitchCase="'account-verified'">
+          ¡Cuenta verificada! Bienvenido a Invest capital
+        </ng-container>
+      </ng-container>
+    </p>
+    <i
+      *ngIf="!notification?.read"
+      class="txt-s clickable c-secondary fi fi-rr-eye"
+    ></i>
+    <i
+      *ngIf="notification?.read"
+      class="txt-s clickable c-metal-gray-dark fi fi-rr-eye-crossed"
+    ></i>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="fetching">
+  <div style="padding: 12px; padding-bottom: 15px" class="layout">
+    <p-skeleton
+      [style]="{ backgroundColor: colors.$bgLevel3, opacity: 0.5 }"
+      shape="square"
+      size="20px"
+    ></p-skeleton>
+    <div>
+      <p-skeleton
+        [style]="{ backgroundColor: colors.$bgLevel3, opacity: 0.5 }"
+        height="15px"
+        width="100%"
+      ></p-skeleton>
+      <div class="m-1"></div>
+      <p-skeleton
+        [style]="{ backgroundColor: colors.$bgLevel3, opacity: 0.5 }"
+        height="15px"
+        width="140px"
+      ></p-skeleton>
+    </div>
+    <div>
+      <p-skeleton
+        [style]="{ backgroundColor: colors.$bgLevel3, opacity: 0.5 }"
+        shape="square"
+        size="20px"
+      ></p-skeleton>
+    </div>
+  </div>
+</ng-container>

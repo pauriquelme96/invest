@@ -1,0 +1,11 @@
+.header {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    margin-bottom: 0px;
+    margin-top: 0.25em;
+    border-radius: 7px;
+    padding: 0.25em;
+    position: relative;
+    z-index: 1;
+}

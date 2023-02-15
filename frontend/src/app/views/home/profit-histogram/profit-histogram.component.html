@@ -1,0 +1,21 @@
+<div
+  class="box raise-m no-select"
+  [ngStyle]="{ opacity: fetching ? '0.7' : '1' }"
+>
+  <p class="label-xs uppr mb-1">
+    <i class="fi fi-rr-chart-histogram"></i> Evolución
+  </p>
+  <!-- p class="empty-state">No hay evolución</p -->
+  <p-chart
+    *ngIf="!fetching"
+    type="line"
+    [data]="data"
+    [options]="options"
+  ></p-chart>
+
+  <ng-container *ngIf="fetching">
+    <div class="empty-box">
+      <p class="txt-xs c-secondary txt-algn-c">Cargando...</p>
+    </div>
+  </ng-container>
+</div>

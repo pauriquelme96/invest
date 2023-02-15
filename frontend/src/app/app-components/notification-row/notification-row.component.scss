@@ -1,0 +1,22 @@
+
+.layout {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 19px;
+    align-items: center;
+}
+
+.icon {
+    font-size: 1em;
+    position:relative;
+    top: 1px;
+}
+
+.status {
+    position: relative;
+    left: 6px;
+    margin-right: 12px;
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+}

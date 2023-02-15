@@ -1,0 +1,42 @@
+<div class="input-layout">
+  <label
+    class="label"
+    [ngClass]="ctrl.fetching || ctrl.disabled ? 'muted' : ''"
+  >
+    {{ ctrl.label }}
+  </label>
+
+  <span class="p-input-icon-right">
+    <ng-container *ngIf="!ctrl.fetching" [ngSwitch]="ctrl.status">
+      <i *ngSwitchCase="'warn'" class="warn-icon fi fi-rr-exclamation"></i>
+      <i *ngSwitchCase="'error'" class="error-icon fi fi-rr-cross-circle"></i>
+      <i *ngSwitchCase="'success'" class="success-icon fi fi-rr-check"></i>
+    </ng-container>
+    <input
+      #input
+      pInputText
+      [pTooltip]="ctrl.tooltip"
+      tooltipPosition="top"
+      [ngModel]="ctrl.value"
+      class="input"
+      [ngClass]="ctrl.disabled || ctrl.fetching ? 'muted' : ctrl.status"
+      [disabled]="ctrl.disabled || ctrl.fetching"
+      style="width: 100%"
+      [placeholder]="ctrl.placeholder"
+      [type]="ctrl.type || 'text'"
+      (change)="ctrl.setValue($event?.target.value)"
+      (keyup)="ctrl.keyup.next($event.target.value)"
+    />
+  </span>
+</div>
+
+<!-- readonly (focus)="input.removeAttribute('readonly')" -->
+
+<ng-container *ngIf="ctrl.fetching">
+  <div style="height: 0px; position: relative; top: -2px">
+    <p-progressBar
+      [style]="{ height: '2px' }"
+      mode="indeterminate"
+    ></p-progressBar>
+  </div>
+</ng-container>

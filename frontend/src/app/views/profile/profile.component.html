@@ -1,0 +1,16 @@
+<div class="main-layout">
+  <app-basic-header title="Perfil" path="home"></app-basic-header>
+  <div class="p-2 content">
+    <div class="form-layout">
+      <app-input [ctrl]="form.schema['email']"></app-input>
+      <app-input [ctrl]="form.schema['phone']"></app-input>
+      <div class="p-2" style="margin: auto">
+        <app-button [ctrl]="saveButton"></app-button>
+      </div>
+      <app-input [ctrl]="form.schema['fullName']"></app-input>
+      <app-input [ctrl]="form.schema['postalDirection']"></app-input>
+      <app-input [ctrl]="form.schema['idCard']"></app-input>
+      <app-input [ctrl]="form.schema['bank']"></app-input>
+    </div>
+  </div>
+</div>

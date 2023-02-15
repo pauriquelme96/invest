@@ -1,0 +1,21 @@
+<div class="bg-level-1 h-100">
+  <div class="main-layout">
+    <div class="logo"></div>
+    <div class="form-layout">
+      <app-input [ctrl]="form?.schema.user"></app-input>
+      <span></span>
+      <span></span>
+      <span></span>
+      <app-input [ctrl]="form?.schema.password"></app-input>
+      <p class="forgot-password" (click)="goForgotPassword()">
+        ¿Has olvidado tu contraseña?
+      </p>
+    </div>
+    <div style="margin: 0 auto; margin-top: 30px">
+      <app-button [ctrl]="loginButton"></app-button>
+    </div>
+    <div style="font-size: 0.7em; color: gray; text-align: center">
+      beta v1.0.0
+    </div>
+  </div>
+</div>

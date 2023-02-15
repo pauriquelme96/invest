@@ -1,0 +1,19 @@
+
+
+.main-layout {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    height: 100%;
+}
+
+.content {
+    overflow: auto;
+}
+
+.form-layout {
+    font-size: 0.8em;
+    display: grid;
+    grid-auto-flow: row;
+    align-items: baseline;
+    gap: 25px;
+}

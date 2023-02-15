@@ -1,0 +1,38 @@
+@import '../../../../variables.scss';
+
+.header {
+    display: grid;
+    //grid-template-columns: auto 1fr auto;
+    grid-auto-flow: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 0px;
+    margin-top: 0.25em;
+    border-radius: 7px;
+    padding: 0.25em;
+    position: relative;
+    z-index: 1;
+}
+
+.logo {
+    background-image: url('../../../../assets/logo-empty.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 35px;
+    width: 28px;
+    padding: 5px;
+    margin-left: 3px;
+    background-color: $bgLevel2;
+    border-radius: 50%;
+}
+
+.adjust-content-label {
+    margin-top: -8px;
+}
+
+.adjust-content-title {
+    margin-top: -8px;
+    height: 29px;
+}

@@ -1,0 +1,21 @@
+<div class="main-layout">
+  <app-basic-header title="Notificaciones" path="home"></app-basic-header>
+  <div class="p-1 content no-select">
+    <ng-container *ngFor="let notification of notifications; let i = index">
+      <p *ngIf="notification?.showMonth" class="m-3 label-s uppr">
+        {{ notification?.month }}
+      </p>
+      <div class="m-3" *ngIf="fetching && i % 4 === 0">
+        <p-skeleton
+          [style]="{ backgroundColor: colors.$bgLevel3, opacity: 0.5 }"
+          height="15px"
+          width="90px"
+        ></p-skeleton>
+      </div>
+      <app-notification-row
+        [notification]="notification"
+        [fetching]="fetching"
+      ></app-notification-row>
+    </ng-container>
+  </div>
+</div>

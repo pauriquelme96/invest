@@ -1,0 +1,68 @@
+<ng-container *ngIf="modal" [inject]="modal"></ng-container>
+
+<router-outlet *ngIf="context.stage === 'show'"></router-outlet>
+<app-splash
+  *ngIf="context.stage !== 'show'"
+  [stage]="context.stage"
+  [browser]="context.browser"
+></app-splash>
+
+<div
+  *ngIf="false"
+  #debug
+  class="raise-m"
+  [ngStyle]="{ display: debug.notShow ? 'none' : 'auto' }"
+  style="
+    position: fixed;
+    bottom: 20px;
+    background-color: white;
+    left: 20px;
+    right: 20px;
+    border-radius: 5px;
+    min-height: 60px;
+    z-index: 1;
+    padding: 5px;
+  "
+>
+  <p class="c-secondary txt-s uppr">App Info (Debug)</p>
+  <p *ngIf="context.device?.browser?.name" class="c-secondary txt-xs">
+    Browser: {{ context.device?.browser?.name }} ({{
+      context.device?.browser?.version
+    }})
+  </p>
+  <p *ngIf="context.device?.os?.name" class="c-secondary txt-xs">
+    System: {{ context.device?.os?.name }} ({{ context.device?.os?.version }})
+  </p>
+  <p *ngIf="context.device?.engine?.name" class="c-secondary txt-xs">
+    Engine: {{ context.device?.engine?.name }} ({{
+      context.device?.engine?.version
+    }})
+  </p>
+  <p
+    *ngIf="
+      context.device?.device?.model ||
+      context.device?.device?.type ||
+      context.device?.device?.vendor
+    "
+    class="c-secondary txt-xs"
+  >
+    Device: {{ context.device?.device?.model }}
+    {{ context.device?.device?.type }}
+    {{ context.device?.device?.vendor }}
+  </p>
+  <p *ngIf="context.href" class="c-secondary txt-xs">
+    Href: {{ context.href }}
+  </p>
+  <p class="c-secondary txt-xs">PWA Installed: {{ context.installed }}</p>
+  <p class="c-secondary txt-xs">PWA Installable: {{ context.installable }}</p>
+  <p class="c-secondary txt-xs">
+    Stage: {{ context.stage }} {{ context.browser }}
+  </p>
+  <p class="c-secondary txt-xs">Platform: {{ context.platform }}</p>
+  <p
+    class="c-error txt-xs txt-cntr p-1 clickable no-select"
+    (click)="debug.notShow = true"
+  >
+    Close
+  </p>
+</div>

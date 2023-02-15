@@ -1,0 +1,16 @@
+<div
+  class="box raise-m no-select"
+  [ngStyle]="{ opacity: fetching ? '0.7' : '1' }"
+>
+  <p class="label-xs uppr">
+    <i class="fi fi-rr-feather"></i> Recibos sin firmar
+  </p>
+  <div class="content">
+    <app-balance-row
+      *ngFor="let receipt of unsignedReceipts"
+      [balance]="receipt"
+      [fetching]="fetching"
+    ></app-balance-row>
+  </div>
+  <p class="empty" *ngIf="unsignedReceipts.length === 0">No hay notas</p>
+</div>

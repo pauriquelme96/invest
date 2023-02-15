@@ -1,0 +1,13 @@
+<div class="m-2 header bg-level-2 raise-m no-select">
+  <div class="logo"></div>
+  <div class="ml-2">
+    <p class="adjust-content-label label-xxs">Disponible</p>
+    <p class="adjust-content-title txt-xl c-primary">
+      <app-currency [number]="account || 0" currency="EUR"></app-currency>
+    </p>
+  </div>
+  <i
+    (click)="openMenu()"
+    class="p-1 clickable txt-s fit-down-s c-primary fi fi-rr-menu-burger"
+  ></i>
+</div>

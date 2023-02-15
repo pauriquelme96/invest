@@ -1,0 +1,23 @@
+$space: 15px;
+
+.main-layout {
+    display: grid;
+    height: 100%;
+    grid-template-rows: auto 1fr;
+}
+
+.content-layout {
+    display: grid;
+    grid-auto-flow: row;
+    align-content: baseline;
+    gap: $space;
+    //padding: $space;
+    padding: 0.8em;
+    overflow: auto;
+}
+
+.two-cols-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $space;
+}

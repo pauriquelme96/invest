@@ -1,0 +1,348 @@
+@import './variables.scss';
+
+// --------------------------------------------------
+// TEXT UTILS
+// --------------------------------------------------
+
+
+.txt-bld {
+    font-weight: bold;
+}
+
+.txt-lght {
+    font-weight: lighter;
+}
+
+.txt-algn-r {
+    text-align: right;
+}
+
+.txt-algn-l {
+    text-align: left;
+}
+
+.txt-algn-c {
+    text-align: center;
+}
+
+// FONT SIZE
+.txt-xxl {
+    font-size: 1.8em;
+}
+
+.txt-xl {
+    font-size: 1.4em;
+}
+
+.txt-l {
+    font-size: 1.2em;
+}
+
+.txt-m {
+    font-size: 1em;
+}
+
+.txt-s {
+    font-size: 0.8em;
+}
+
+.txt-xs {
+    font-size: 0.7em;
+}
+
+.txt-xxs {
+    font-size: 0.6em;
+}
+
+.txt-cntr {
+    text-align: center;
+}
+
+// TOOLS
+.ellipsis {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.uppr {
+    text-transform: uppercase;
+}
+
+.lwr {
+    text-transform: lowercase;
+}
+
+.undrl {
+    text-decoration: underline;
+}
+
+.cptlz {
+    text-transform: capitalize;
+}
+
+.fit-down-s {
+    margin-bottom: -2px;
+    margin-top: 2px;
+}
+
+.fit-down {
+    margin-bottom: -4px;
+    margin-top: 4px;
+}
+
+.fit-up {
+    margin-top: -4px;
+    //margin-top: 4px;
+}
+
+.mv-down {
+    margin-bottom: -0.3em;
+}
+
+.mv-up {
+    margin-top: -0.3em;
+}
+
+.empty {
+    @extend .txt-xs;
+    color: $fontColorSecondary;
+    padding: 30px;
+    text-align: center;
+}
+
+.no-select > * {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.clickable:active {
+    transform: scale(0.97);
+    opacity: 0.7;
+}
+
+// --------------------------------------------------
+// COLORS
+// --------------------------------------------------
+
+.c-primary {
+    color: $fontColorPrimary;
+}
+
+.c-secondary {
+    color: $fontColorSecondary;
+}
+
+.c-gold {
+    color: $gold;
+}
+
+.c-gold-light {
+    color: $goldLight;
+}
+
+.c-gold-dark {
+    color: $goldDark;
+}
+
+.c-success {
+    color: $successColor;
+}
+
+.c-error {
+    color: $errorColor;
+}
+
+.c-warn {
+    color: $warningColor;
+}
+
+.c-metal-gray {
+    color: $metalGray
+}
+
+.c-metal-gray-dark {
+    color: $metalGrayDark
+}
+
+.bg-primary {
+    background-color: $fontColorPrimary;
+}
+
+.bg-secondary {
+    background-color: $fontColorSecondary;
+}
+
+.bg-level-1 {
+    background-color: $bgLevel1;
+}
+
+.bg-level-2 {
+    background-color: $bgLevel2;
+}
+
+.bg-gold {
+    background-color: $gold;
+}
+
+.bg-gold-light {
+    background-color: $goldLight;
+}
+
+.bg-gold-dark {
+    background-color: $goldDark;
+}
+
+.bg-success {
+    background-color: $successColor;
+}
+
+.bg-info-light {
+    background-color: $infoColorLight;
+}
+
+.bg-success-light {
+    background-color: $successColorLight;
+}
+
+.bg-metal-gray {
+    background-color: $metalGray
+}
+
+.bg-metal-gray-dark {
+    background-color: $metalGrayDark
+}
+
+
+// --------------------------------------------------
+// SHADOWS
+// --------------------------------------------------
+
+.raise-m {
+    //box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2);
+}
+
+
+// --------------------------------------------------
+// SPACES
+// --------------------------------------------------
+
+.w-100 {
+    width: 100%;
+}
+
+.h-100 {
+    height: 100%; 
+}
+
+.mt-1 {
+    margin-bottom: 0.5em;
+}
+
+.mt-2 {
+    margin-bottom: 1em;
+}
+
+.mt-3 {
+    margin-bottom: 1.5em;
+}
+
+.mt-4 {
+    margin-bottom: 2em;
+}
+
+.mt-5 {
+    margin-bottom: 2em;
+}
+
+.mb-1 {
+    margin-bottom: 0.5em;
+}
+
+.mb-2 {
+    margin-bottom: 1em;
+}
+
+.mb-3 {
+    margin-bottom: 1.5em;
+}
+
+.mb-4 {
+    margin-bottom: 2em;
+}
+
+.mb-5 {
+    margin-bottom: 2.5em;
+}
+
+.ml-1 {
+    margin-left: 0.5em;
+}
+
+.ml-2 {
+    margin-left: 1em;
+}
+
+.ml-3 {
+    margin-left: 1.5em;
+}
+
+.mr-1 {
+    margin-right: 0.25em;
+}
+
+.mr-2 {
+    margin-right: 0.5em;
+}
+
+.mr-3 {
+    margin-right: 0.75em;
+}
+
+
+.p-1 {
+    padding: 0.5em;
+}
+
+.p-2 {
+    padding: 1em;
+}
+
+.p-3 {
+    padding: 1.5em;
+}
+
+.p-4 {
+    padding: 2em;
+}
+
+.p-5 {
+    padding: 2.5em;
+}
+
+.m-1 {
+    margin: 0.25em;
+}
+
+.m-2 {
+    margin: 0.5em;
+}
+
+.m-3 {
+    margin: 0.75em;
+}
+
+.m-4 {
+    margin: 1em;
+}
+
+.m-5 {
+    margin: 1.25em;
+}

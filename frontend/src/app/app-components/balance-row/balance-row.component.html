@@ -1,0 +1,126 @@
+<ng-container *ngIf="!fetching">
+  <div class="p-1 layout no-select">
+    <ng-container [ngSwitch]="balance?.type">
+      <i *ngSwitchCase="'collect'" class="txt-m c-secondary fi fi-rr-bank"></i>
+      <i *ngSwitchCase="'retire'" class="txt-m c-secondary fi fi-rr-upload"></i>
+      <i
+        *ngSwitchCase="'deposit'"
+        class="txt-m c-secondary fi fi-rr-download"
+      ></i>
+      <i
+        *ngSwitchCase="'receipt'"
+        class="txt-m c-secondary fi fi-rr-receipt"
+      ></i>
+    </ng-container>
+    <p class="txt-xs c-primary">
+      <ng-container [ngSwitch]="balance?.type">
+        <span *ngSwitchCase="'collect'">
+          Beneficio de
+          <app-currency
+            [number]="balance?.amount"
+            currency="EUR"
+          ></app-currency>
+          ingresado en capital
+        </span>
+        <span *ngSwitchCase="'retire'">
+          Retirados
+          <app-currency
+            [number]="balance?.amount"
+            currency="EUR"
+          ></app-currency>
+          del capital disponible
+        </span>
+        <span *ngSwitchCase="'deposit'">
+          Depositados
+          <app-currency
+            [number]="balance?.amount"
+            currency="EUR"
+          ></app-currency>
+          en capital disponible
+        </span>
+        <span *ngSwitchCase="'receipt'">
+          Recibo de {{ balance?.month }} listo para firmar y descargar
+        </span>
+      </ng-container>
+    </p>
+    <div>
+      <ng-container *ngIf="balance?.type !== 'receipt'">
+        <p
+          [ngClass]="
+            balance?.amount > 0
+              ? balance?.type === 'deposit'
+                ? 'c-success'
+                : 'c-primary'
+              : 'c-error'
+          "
+          class="txt-s c-primary txt-algn-r"
+        >
+          <app-currency
+            [number]="balance?.amount"
+            currency="EUR"
+          ></app-currency>
+        </p>
+
+        <p class="txt-xxs c-secondary txt-algn-r">
+          <app-currency
+            [number]="balance?.account"
+            currency="EUR"
+          ></app-currency>
+        </p>
+      </ng-container>
+      <ng-container *ngIf="balance?.type === 'receipt'">
+        <div class="controls">
+          <i class="clickable c-primary fi fi-rr-feather"></i>
+          <!-- img
+            class="clickable"
+            style="height: 25px; width: 25px; margin-top: -4px"
+            src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMCA1MTAiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiIGNsYXNzPSIiPjxnPjxwYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZD0ibTQ0Ni4wNzMgODcuMTY3LTI5LjQ0IDI5Ljk1NiA2MC4xMTQgNjAuMTE0IDMwLjE0Ny0yOS4xMjdjNC4wOTMtMy45NTQgNC4xNDktMTAuNDk2LjEyNS0xNC41MmwtNDYuNDg2LTQ2LjQ4NmMtNC4wMDEtNC0xMC40OTUtMy45NzItMTQuNDYuMDYzeiIgZmlsbD0iI2Q4ZDhkOCIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgY2xhc3M9IiI+PC9wYXRoPjxwYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZD0ibTM0Ni4yNjcgMTk0LjY5NmMtMjkuODgzIDExLjQtNjIuNzE5IDEzLjAxNC03Ni4zOTYgMTMuMTQ4LTQuMDE1LjAzOS03LjYyNiAyLjQ1LTkuMjIxIDYuMTM1bC03NC4zMDMgMTcxLjY1NyA3OC45NDctNzguOTQ3Yy04LjQ0NC0xNy43MzktNC44MTItMzkuODQ0IDEwLjg4Ni01My44MzkgMTcuNDM4LTE1LjU0NiA0NC4yMzctMTUuMjg4IDYxLjM4OS41NzIgMTkuMTMzIDE3LjY5IDE5LjU3MiA0Ny42NjcgMS4zMTggNjUuOTIxLTE0LjAzNSAxNC4wMzUtMzUuMDIyIDE3LjAyNC01MiA4LjkzOGwtNzguOTU4IDc4Ljk1OGMuMzk4LS4xNzIgMTQwLjIwMi02MC43NjEgMTcxLjcwNS03NC40MTQgMy43NDktMS42MjUgNi4xNjEtNS4zMjUgNi4xMjEtOS40MTEtLjIxMi0yMS41NzcgMS44MjItNDYuODQgMTMuMTAzLTc2LjEyNnoiIGZpbGw9IiNkOGQ4ZDgiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSIiPjwvcGF0aD48cGF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGQ9Im0zMTcuMjk0IDI5Ny43NWM1LjkxNS01LjkyNSA1LjkxNS0xNS41NTUgMC0yMS40Ny01LjkyNC01LjkyNC0xNS41NTctNS45MTMtMjEuNDcgMC01LjkxNCA1LjkxNS01LjkxNCAxNS41NDUgMCAyMS40NyA1LjkyNSA1LjkxNCAxNS41NDUgNS45MTQgMjEuNDcgMHoiIGZpbGw9IiNkOGQ4ZDgiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSIiPjwvcGF0aD48cGF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGQ9Im0xNTAuMDg1IDI2My42NjZjMjMuNDk2LTIxLjUyMSAyNS4wMDMtNDMuNjgzIDIyLjEzMi01OC40NzUtOC4wMDItNDEuMjMtNjAuNDMtODEuMDQ0LTE1MS41OTMtMTE1LjEyOC03LjktMi45NTItMTYuNjk2IDEuMDU5LTE5LjY0OCA4Ljk0OC0yLjk2MyA3LjkgMS4wNDkgMTYuNzA2IDguOTQ4IDE5LjY1OCAzOC44NjUgMTQuNTIyIDEyNC40MTYgNTEuNjk0IDEzMi4zMTIgOTIuMzQ0IDIuMDQ2IDEwLjUyNi0yLjEzOCAyMC4zODEtMTIuNzc2IDMwLjEyMy0xMC4wMjggOS4xODMtMTguNjQgMTguNTk5LTI1Ljc3NiAyOC4xMjgtNDIuNzg2IDU3LjA2Mi0zMy4yNzkgMTE4LjkzNyA0Mi40MjEgMTU2LjYxMiAzLjgyOS0zLjgyOSAxMC43NDctMTAuNzQ2IDIyLjk2Ny0yMi45NjctNTAuMzI4LTIxLjkzMS03Ni41MDYtNTUuMzE3LTQ4Ljk4Ny0xMDMuMDY0IDYuOTQyLTEyLjA2MiAxNy4wNC0yNC4zMDggMzAtMzYuMTc5eiIgZmlsbD0iI2Q4ZDhkOCIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgY2xhc3M9IiI+PC9wYXRoPjxwYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZD0ibTM4My45MjMgMTI3LjU5OGMtOC4zNzEtOC4zNzEtMjIuMTYzLTguNjIyLTMwLjc4NSAwLTguNTg1IDguNjA2LTguNDE2IDIyLjM1OCAwIDMwLjc3NSAzLjc2NSAzLjc2NSA3Ny44NzQgNzcuODc0IDgyLjA1MiA4Mi4wNTIgOC40NSA4LjQ1IDIyLjIwNSA4LjU4IDMwLjc4NSAwIDguNDk5LTguNDk5IDguNDc5LTIyLjI5NSAwLTMwLjc3NS0uNTQ3LS41NDctODEuNTA0LTgxLjUwNC04Mi4wNTItODIuMDUyeiIgZmlsbD0iI2Q4ZDhkOCIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgY2xhc3M9IiI+PC9wYXRoPjwvZz48L3N2Zz4="
+          /-->
+          <img
+            class="clickable"
+            style="height: 25px; width: 25px; margin-top: -4px"
+            src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDMyIDMyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIiBjbGFzcz0iIj48Zz48cGF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGlkPSJYTUxJRF85OF8iIGQ9Im0yNC45NzIgMTIuMjg4Yy0uMzY0LTQuNjMxLTQuMjQ5LTguMjg4LTguOTcyLTguMjg4LTQuMDQgMC03LjUwOCAyLjYyNC04LjYyNyA2LjQ1MS0zLjE5MiAxLjEwOC01LjM3MyA0LjEzMi01LjM3MyA3LjU0OSAwIDQuNDExIDMuNTg5IDggOCA4aDEzYzMuODYgMCA3LTMuMTQgNy03IDAtMy4xNDktMi4wNy01Ljg1Mi01LjAyOC02LjcxMnptLTEuOTcyIDExLjcxMmgtMTNjLTMuMzA5IDAtNi0yLjY5MS02LTYgMC0yLjcxMiAxLjgzMy01LjA5NCA0LjQ1Ny01Ljc5Mi4zNi0uMDk2LjYzNy0uMzg0LjcxOS0uNzQ3LjcxLTMuMTY0IDMuNTgtNS40NjEgNi44MjQtNS40NjEgMy42OTQgMCA2Ljk5NiAyLjkyNCA2Ljk5NiA3LjA4OSAwIC40ODkuMzUzLjkwNi44MzUuOTg2IDIuNDE2LjQwNSA0LjE2OSAyLjQ3NiA0LjE2OSA0LjkyNSAwIDIuNzU3LTIuMjQzIDUtNSA1eiIgZmlsbD0iI2Q4ZDhkOCIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgY2xhc3M9IiI+PC9wYXRoPjxwYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgaWQ9IlhNTElEXzEwNF8iIGQ9Im0yMC43MDcgMTYuMjkzYy4zOTEuMzkxLjM5MSAxLjAyMyAwIDEuNDE0bC00IDRjLS4xODUuMTg1LS40NDYuMjkzLS43MDcuMjkzcy0uNTIyLS4xMDgtLjcwNy0uMjkzbC00LTRjLS4zOTEtLjM5MS0uMzkxLTEuMDIzIDAtMS40MTRzMS4wMjMtLjM5MSAxLjQxNCAwbDIuMjkzIDIuMjkzdi03LjU4NmMwLS41NTIuNDQ4LTEgMS0xczEgLjQ0OCAxIDF2Ny41ODZsMi4yOTMtMi4yOTNjLjM5MS0uMzkxIDEuMDIzLS4zOTEgMS40MTQgMHoiIGZpbGw9IiNkOGQ4ZDgiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSIiPjwvcGF0aD48L2c+PC9zdmc+"
+          />
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="fetching">
+  <div style="padding: 10px; padding-bottom: 15px" class="layout">
+    <p-skeleton
+      [style]="{ backgroundColor: colors.$bgLevel3, opacity: 0.5 }"
+      shape="square"
+      size="20px"
+    ></p-skeleton>
+    <div>
+      <p-skeleton
+        [style]="{ backgroundColor: colors.$bgLevel3, opacity: 0.5 }"
+        height="15px"
+        width="100%"
+      ></p-skeleton>
+      <div class="m-1"></div>
+      <p-skeleton
+        [style]="{ backgroundColor: colors.$bgLevel3, opacity: 0.5 }"
+        height="15px"
+        width="140px"
+      ></p-skeleton>
+    </div>
+    <div>
+      <p-skeleton
+        [style]="{ backgroundColor: colors.$bgLevel3, opacity: 0.5 }"
+        height="20px"
+        width="70px"
+      ></p-skeleton>
+      <div class="m-1"></div>
+      <div style="margin-left: 10px">
+        <p-skeleton
+          [style]="{ backgroundColor: colors.$bgLevel3, opacity: 0.5 }"
+          height="12px"
+          width="60px"
+        ></p-skeleton>
+      </div>
+    </div>
+  </div>
+</ng-container>

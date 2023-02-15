@@ -1,0 +1,26 @@
+<div class="main-layout">
+  <app-basic-header title="Balance" path="home"></app-basic-header>
+  <div class="p-1 content no-select">
+    <ng-container *ngFor="let balanceRow of balance; let i = index">
+      <p *ngIf="balanceRow?.showMonth" class="m-3 label-s uppr">
+        {{ balanceRow?.month }}
+      </p>
+      <div class="m-3" *ngIf="fetching && i % 3 === 0">
+        <p-skeleton
+          [style]="{ backgroundColor: colors.$bgLevel3, opacity: 0.5 }"
+          height="15px"
+          width="90px"
+        ></p-skeleton>
+      </div>
+      <app-balance-row [balance]="balanceRow" [fetching]="fetching">
+      </app-balance-row>
+      <div class="year p-1" *ngIf="balanceRow?.showYear">
+        <p class="label-l uppr">
+          {{ balanceRow?.year }}
+        </p>
+        <div style="height: 2px" class="bg-level-2"></div>
+        <!-- i class="c-secondary clickable txt-s fi fi-rr-angle-down"> </i-->
+      </div>
+    </ng-container>
+  </div>
+</div>

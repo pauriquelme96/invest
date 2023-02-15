@@ -1,0 +1,61 @@
+<div
+  *ngIf="!fetching"
+  class="box raise-m no-select clickable"
+  (click)="openDetail()"
+>
+  <div class="layout">
+    <app-pie-chart
+      [value]="data.retired"
+      [maxValue]="data.totalBenefit"
+      icon="fi fi-rr-upload"
+      [color]="colors.$infoColor"
+      [bgColor]="colors.$bgLevel2"
+      [lineColor]="colors.$bgLevel3"
+    ></app-pie-chart>
+    <p class="label-s uppr">Retirar</p>
+  </div>
+  <p class="txt-m c-primary">
+    <app-currency [number]="data.retired" currency="EUR"></app-currency>
+  </p>
+  <p class="label-xxs fit-down">Manteniendo cobro</p>
+  <p class="txt-s c-secondary">
+    <app-currency [number]="data.safeRetire" currency="EUR"></app-currency>
+  </p>
+</div>
+
+<div
+  *ngIf="fetching && loaded"
+  style="opacity: 0.8"
+  class="box raise-m no-select"
+>
+  <div class="layout">
+    <p-skeleton
+      [style]="{ backgroundColor: colors.$bgLevel3, opacity: '0.5' }"
+      shape="circle"
+      size="50px"
+    ></p-skeleton>
+    <p-skeleton
+      [style]="{ backgroundColor: colors.$bgLevel3, opacity: '0.5' }"
+      height="24px"
+      width="100%"
+    ></p-skeleton>
+  </div>
+  <p-skeleton
+    [style]="{ backgroundColor: colors.$bgLevel3, opacity: '0.5' }"
+    height="20px"
+    width="130px"
+  ></p-skeleton>
+  <div class="m-3"></div>
+  <p-skeleton
+    [style]="{ backgroundColor: colors.$bgLevel3, opacity: '0.5' }"
+    height="5px"
+    width="140px"
+  ></p-skeleton>
+  <div class="m-1"></div>
+  <p-skeleton
+    [style]="{ backgroundColor: colors.$bgLevel3, opacity: '0.5' }"
+    height="18px"
+    width="120px"
+  ></p-skeleton>
+  <div class="m-1"></div>
+</div>

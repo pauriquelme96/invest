@@ -1,0 +1,18 @@
+<div
+  class="box raise-m no-select"
+  [ngStyle]="{ opacity: fetching ? '0.7' : '1' }"
+>
+  <p class="label-xs uppr">
+    <i class="fi fi-rr-bell"></i> Notificaciones sin leer
+  </p>
+  <div class="content">
+    <app-notification-row
+      *ngFor="let notification of unreadNotifications"
+      [notification]="notification"
+      [fetching]="fetching"
+    ></app-notification-row>
+  </div>
+  <p class="empty" *ngIf="unreadNotifications.length === 0">
+    No hay notificaciones
+  </p>
+</div>

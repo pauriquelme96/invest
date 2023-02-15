@@ -1,0 +1,64 @@
+<app-overlay [visible]="true">
+  <div class="layout p-2 bg-level-1">
+    <div class="header">
+      <app-pie-chart
+        [value]="data?.retired || 0"
+        [maxValue]="data?.totalBenefit || 100"
+        icon="fi fi-rr-upload"
+        [color]="colors.$infoColor"
+        [bgColor]="colors.$bgLevel1"
+        [lineColor]="colors.$bgLevel2"
+      ></app-pie-chart>
+      <p class="label-s uppr">Capital retirado</p>
+      <i
+        (click)="closeDetail()"
+        class="txt-xs c-secondary clickable p-2 fi fi-rr-cross"
+      ></i>
+    </div>
+    <div class="content">
+      <div class="info p-2 mb-2">
+        <div>
+          <p class="label-xxs uppr txt-algn-c">Total retirado</p>
+          <p class="c-primary txt-l txt-algn-c">
+            <app-currency
+              [number]="data?.retired || 0"
+              currency="EUR"
+            ></app-currency>
+          </p>
+        </div>
+        <div>
+          <p class="label-xxs uppr txt-algn-c">Conservando cobros</p>
+          <p class="c-secondary txt-l txt-algn-c">
+            <app-currency
+              [number]="data?.safeRetire || 0"
+              currency="EUR"
+            ></app-currency>
+          </p>
+        </div>
+      </div>
+      <div>
+        <p class="label-xs mb-2 uppr">
+          <i class="fi fi-rr-notebook"></i>
+          Histórico
+        </p>
+        <ng-container *ngFor="let balance of balanceData">
+          <p *ngIf="!fetching" class="label-xxs ml-1 fit-down uppr">
+            {{ balance?.month }}
+          </p>
+          <div *ngIf="fetching" class="ml-1 fit-down">
+            <p-skeleton
+              [style]="{ backgroundColor: colors.$bgLevel3, opacity: '0.5' }"
+              height="13px"
+              width="45px"
+            ></p-skeleton>
+          </div>
+          <app-balance-row
+            [balance]="balance"
+            [fetching]="fetching"
+          ></app-balance-row>
+        </ng-container>
+        <p *ngIf="balanceData.length === 0" class="empty txt-s">No hay datos</p>
+      </div>
+    </div>
+  </div>
+</app-overlay>

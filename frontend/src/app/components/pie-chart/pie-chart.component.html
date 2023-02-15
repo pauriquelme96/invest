@@ -1,0 +1,18 @@
+<div
+  class="pie-chart"
+  [ngStyle]="{
+    background:
+      'conic-gradient(' +
+      color +
+      ' ' +
+      percent +
+      '%,' +
+      lineColor +
+      ' ' +
+      percent +
+      '% 100%)'
+  }"
+>
+  <i *ngIf="icon" [ngStyle]="{ backgroundColor: bgColor }" [ngClass]="icon"></i>
+  <i *ngIf="!icon" class="empty"></i>
+</div>

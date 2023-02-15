@@ -1,0 +1,17 @@
+<div class="main-layout">
+  <div class="content-layout">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="navigation-layout">
+    <ng-container *ngFor="let route of routes">
+      <i
+        [ngClass]="
+          currentPath === route.path
+            ? 'fi fi-sr-' + route.iconName
+            : 'fi fi-rr-' + route.iconName
+        "
+        (click)="navigateTo(route.path)"
+      ></i>
+    </ng-container>
+  </div>
+</div>
