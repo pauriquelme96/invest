@@ -17,37 +17,37 @@ https://invest.keteden.com
 
 ### Android Installation
 
-![iOS installation](https://invest.keteden.com/assets/app-images/install_in_chrome_screen.png)
+![Android installation](https://invest.keteden.com/assets/app-images/install_in_chrome_screen.png)
 
 ### Redirect to Safari
 
-![iOS installation](https://invest.keteden.com/assets/app-images/redirect_to_safari_screen.png)
+![redirect to safari](https://invest.keteden.com/assets/app-images/redirect_to_safari_screen.png)
 
 ### Redirect to Chrome
 
-![iOS installation](https://invest.keteden.com/assets/app-images/redirect_to_chrome_screen.png)
+![redirect to chrome](https://invest.keteden.com/assets/app-images/redirect_to_chrome_screen.png)
 
 ## APP SCREENS
 
 ### Login
 
-![iOS installation](https://invest.keteden.com/assets/app-images/login_screen.png)
+![Login Screen](https://invest.keteden.com/assets/app-images/login_screen.png)
 
 ### Home
 
-![iOS installation](https://invest.keteden.com/assets/app-images/home_screen.png)
+![Home Screen](https://invest.keteden.com/assets/app-images/home_screen.png)
 
 ### Notifications
 
-![iOS installation](https://invest.keteden.com/assets/app-images/notifications_screen.png)
+![Notifications Screen](https://invest.keteden.com/assets/app-images/notifications_screen.png)
 
 ### Balance
 
-![iOS installation](https://invest.keteden.com/assets/app-images/balance_screen.png)
+![Balance Screen](https://invest.keteden.com/assets/app-images/balance_screen.png)
 
 ### Profile
 
-![iOS installation](https://invest.keteden.com/assets/app-images/profile_screen.png)
+![Profile Screen](https://invest.keteden.com/assets/app-images/profile_screen.png)
 
 ## RUN PROJECT
 
