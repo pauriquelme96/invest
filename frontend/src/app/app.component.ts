@@ -25,9 +25,6 @@ export class AppComponent {
     }
 
     this.context = pwaContext();
-    /*this.context.stage = 'install';
-    this.context.browser = 'safari';*/
-    console.log(this.context);
 
     // ADJUST FONT SIZE ANDROID vs iOS
     if (
